@@ -17,7 +17,7 @@ app.use(cors(
 app.use(express.json());
 
 const MONGO_URL = 
-"mongodb+srv://ranjanirithu206:KS0pwc1jwcIxmZu0@cluster0.8mgcr.mongodb.net/communityforum?retryWrites=true&w=majority";
+"mongodb+srv://ranjanirithu206:KS0pwc1jwcIxmZu0@cluster0.8mgcr.mongodb.net/community?retryWrites=true&w=majority";
 
 mongoose.connect(MONGO_URL, {
     family: 4
