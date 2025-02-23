@@ -16,4 +16,26 @@ router.put("/updatePost/:postId", postController.updatePost);
 
 router.delete("/deletePost/:postId", postController.deletePost);
 
+// Update loan balance
+router.put('/update-balance/:id', async (req, res) => {
+    try {
+      const loan = await Loan.findById(req.params.id);
+      if (!loan) {
+        return res.status(404).json({ message: 'Loan not found' });
+      }
+  
+      const payment = parseFloat(req.body.payment);
+      if (isNaN(payment) || payment <= 0) {
+        return res.status(400).json({ message: 'Invalid payment amount' });
+      }
+  
+      loan.balance -= payment; // Update the balance
+      await loan.save();
+  
+      res.status(200).json({ message: 'Balance updated', loan });
+    } catch (err) {
+      res.status(500).json({ message: err.message });
+    }
+  });
+  
 module.exports = router;

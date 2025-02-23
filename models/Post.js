@@ -41,7 +41,11 @@ const postSchema = new mongoose.Schema({
     ],
     attachment: {
         type: String
-    }
+    },
+    name: String,
+    totalPayable: Number,
+    balance: Number,
+    dailyPayable: Number,
 });
 
 module.exports = mongoose.model('Post', postSchema);
