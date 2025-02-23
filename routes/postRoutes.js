@@ -15,6 +15,7 @@ router.post("/createPost", postController.createPost);
 router.put("/updatePost/:postId", postController.updatePost);
 
 router.delete("/deletePost/:postId", postController.deletePost);
+router.put('/update-balance/:id', postController.updateBalance);
 
 
 router.put('/update-balance/:id', async (req, res) => {
