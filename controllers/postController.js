@@ -1,4 +1,4 @@
-// postController.js
+// loanController.js
 
 const Post = require('../models/Post');
 const jwt = require('jsonwebtoken');

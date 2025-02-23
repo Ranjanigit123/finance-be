@@ -1,4 +1,4 @@
-// postModel.js
+// loanModel.js
 
 const mongoose = require('mongoose');
 const User = require('./User');
@@ -46,6 +46,7 @@ const postSchema = new mongoose.Schema({
     totalPayable: Number,
     balance: Number,
     dailyPayable: Number,
+    payment: Number,
 });
 
 module.exports = mongoose.model('Post', postSchema);
