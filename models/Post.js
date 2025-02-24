@@ -41,9 +41,13 @@ const postSchema = new mongoose.Schema({
     ],
     attachment: {
         type: Number
+    },  
+});
+postSchema.pre('save', function (next) {
+    if (this.isModified('content') || this.isModified('category')) {
+        this.attachment = (this.attachment || this.content) - this.category;
     }
-
-    
+    next();
 });
 
 module.exports = mongoose.model('Post', postSchema);
