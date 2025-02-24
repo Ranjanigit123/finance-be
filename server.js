@@ -10,8 +10,8 @@ const likeRoutes = require('../backend/routes/likeRoutes');
 const app = express();
 app.use(cors());
 app.use(express.json());
-
-mongoose.connect('mongodb+srv://ranjanirithu206:KS0pwc1jwcIxmZu0@cluster0.8mgcr.mongodb.net/community?retryWrites=true&w=majority', {
+const MONGO_URL = "mongodb+srv://ranjanirithu206:KS0pwc1jwcIxmZu0@cluster0.8mgcr.mongodb.net/community?retryWrites=true&w=majority";
+mongoose.connect(MONGO_URL, {
     family: 4
 })
     .then(() => console.log("Mongo DB Connected"))
