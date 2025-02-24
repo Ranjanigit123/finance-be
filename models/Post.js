@@ -9,7 +9,7 @@ const postSchema = new mongoose.Schema({
         required: true
     },
     content: {
-        type: String,
+        type: Number,
         required: true
     },
     author: {
@@ -26,7 +26,7 @@ const postSchema = new mongoose.Schema({
         required: true
     },
     category: {
-        type: String,
+        type: Number,
         default: ''
     },
     isLiked: {
@@ -39,9 +39,8 @@ const postSchema = new mongoose.Schema({
             ref: User
         }
     ],
-    attachment: {
-        type: String
-    }
+    
+    
 });
 
 module.exports = mongoose.model('Post', postSchema);
