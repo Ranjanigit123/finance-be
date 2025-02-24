@@ -3,9 +3,9 @@
 const express = require('express');
 const cors = require('cors');
 const mongoose = require('mongoose');
-const authRoutes = require('../be/routes/authRoutes');
-const postRoutes = require('../be/routes/postRoutes');
-const likeRoutes = require('../be/routes/likeRoutes');
+const authRoutes = require('./be/routes/authRoutes');
+const postRoutes = require('./be/routes/postRoutes');
+const likeRoutes = require('./be/routes/likeRoutes');
 
 const app = express();
 app.use(cors());
