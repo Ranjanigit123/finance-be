@@ -1,4 +1,4 @@
-// loanController.js
+// postController.js
 
 const Post = require('../models/Post');
 const jwt = require('jsonwebtoken');
@@ -134,27 +134,5 @@ exports.deletePost = async (req, res) => {
             success: true,
             message: error.message
         });
-    }
-};
-exports.updateBalance = async (req, res) => {
-    try {
-        const { payment } = req.body;
-        const post = await Post.findById(req.params.id);
-
-        if (!post) {
-            return res.status(404).json({ message: 'Loan not found' });
-        }
-
-        const paymentAmount = parseFloat(payment);
-        if (isNaN(paymentAmount) || paymentAmount <= 0) {
-            return res.status(400).json({ message: 'Invalid payment amount' });
-        }
-
-        post.balance = Math.max(0, post.balance - paymentAmount); // Ensure balance doesn't go negative
-        await post.save();
-
-        res.status(200).json({ message: 'Balance updated successfully', post });
-    } catch (err) {
-        res.status(500).json({ message: err.message });
     }
 };
