@@ -27,7 +27,7 @@ const postSchema = new mongoose.Schema({
     },
     category: {
         type: Number,
-        default: ''
+        //default: ''
     },
     isLiked: {
         type: Boolean,
@@ -39,7 +39,10 @@ const postSchema = new mongoose.Schema({
             ref: User
         }
     ],
-    
+    attachment: {
+        type: Number
+    }
+
     
 });
 
