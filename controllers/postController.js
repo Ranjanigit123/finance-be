@@ -62,7 +62,7 @@ exports.createPost = async (req, res) => {
     try {
         let post = {};
         const { title, content, category, attachment,
-            total,createdAt, updatedAt } = req.body.post;
+            createdAt, updatedAt } = req.body.post;
         if (req.headers['authorization']
             && req.headers['authorization']
                 .startsWith('Bearer ')) {
@@ -82,7 +82,7 @@ exports.createPost = async (req, res) => {
                             createdAt: createdAt,
                             updatedAt: updatedAt,
                             category: category,
-                            total:total,
+                           
                             likes: [],
                             attachment: attachment
                         });
@@ -104,13 +104,13 @@ exports.updatePost = async (req, res) => {
     try {
         const postId = req.params.postId;
         const { title, content,
-            total,category, attachment } = req.body;
+            category, attachment } = req.body;
         const post = await Post.findByIdAndUpdate(postId, {
             title: title,
             content: content,
             category: category,
             attachment: attachment,
-            total:total
+            
         }, { new: true });
         res.status(201).json(post);
     }

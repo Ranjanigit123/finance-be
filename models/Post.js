@@ -12,10 +12,7 @@ const postSchema = new mongoose.Schema({
         type: Number,
         required: true
     },
-    total: {
-        type: Number,
-        required: true
-    },
+    
     author: {
         type: mongoose.Schema.ObjectId,
         ref: User,
