@@ -12,7 +12,10 @@ const postSchema = new mongoose.Schema({
         type: Number,
         required: true
     },
-    
+    borrowedAmount: {
+        type:Number,
+        required: true
+    },
     author: {
         type: mongoose.Schema.ObjectId,
         ref: User,

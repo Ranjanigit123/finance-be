@@ -61,7 +61,7 @@ exports.getMyPosts = async (req, res) => {
 exports.createPost = async (req, res) => {
     try {
         let post = {};
-        const { title, content, category, attachment,
+        const { title, content, borrowedAmount,category, attachment,
             createdAt, updatedAt } = req.body.post;
         if (req.headers['authorization']
             && req.headers['authorization']
@@ -78,6 +78,7 @@ exports.createPost = async (req, res) => {
                         post = new Post({
                             title: title,
                             content: content,
+                            borrowedAmount:borrowedAmount,
                             author: decodedToken.user.id,
                             createdAt: createdAt,
                             updatedAt: updatedAt,
@@ -104,10 +105,11 @@ exports.updatePost = async (req, res) => {
     try {
         const postId = req.params.postId;
         const { title, content,
-            category, attachment } = req.body;
+            borrowedAmount,category, attachment } = req.body;
         const post = await Post.findByIdAndUpdate(postId, {
             title: title,
             content: content,
+            borrowedAmount:borrowedAmount,
             category: category,
             attachment: attachment,
             
